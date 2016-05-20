@@ -36,12 +36,40 @@
     </nav>
 
     <div class="container">
-        <div class="starter-template">
-            <h1>jBoard</h1>
-            <p class="lead"></p>
+       <h3>Realtime message board</h3>
+        <div class="jumbotron">
+           <h2 id="lblCurrentMessage" class="text-center"></h2>
+        </div>
+        <div class="form-group">
+            <input type="text" id="txtNewMessage" class="form-control">
+            <button id="btUpdateMessage" class="btn btn-primary">Update</button>    
         </div>
     </div>
+<!--firebase-->
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+<script>
+    var lblCurrentMessage = document.getElementById('lblCurrentMessage'),
+        txtNewMessage = document.getElementById('txtNewMessage'),
+        btUpdateMessage = document.getElementById('btUpdateMessage');
+        rootRef = new Firebase('https://jchat-18544.firebaseapp.com/'),
+        currentMessageRef = rootRef.child('currentMessage');
 
+            btUpdateMessage.addEventListener('click', function() {
+              currentMessageRef.set(txtNewMessage.value);
+                txtNewMessage.value='';
+            });
+</script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB_6B4i_JJe8cxhXZv8vIBZgwRoRK_FObA",
+    authDomain: "jchat-18544.firebaseapp.com",
+    databaseURL: "https://jchat-18544.firebaseio.com",
+    storageBucket: "jchat-18544.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
