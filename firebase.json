@@ -11,7 +11,7 @@
       }
     ]
   }
-    "permissions": [
-  "gcm", ... // Other permissions, like "storage"
-]
-}
+//     "permissions": [
+//   "gcm", ... // Other permissions, like "storage"
+// ]
+// }
