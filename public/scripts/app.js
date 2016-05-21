@@ -1,6 +1,6 @@
 
   // Initialize Firebase
-  var Firebase = require("firebase");
+var Firebase = require("firebase");
 var config = {
     apiKey: "AIzaSyB_6B4i_JJe8cxhXZv8vIBZgwRoRK_FObA",
     authDomain: "jchat-18544.firebaseapp.com",
@@ -21,7 +21,7 @@ btUpdateMessage.addEventListener('click', function() {
     txtNewMessage.value='';
     
     //prompt user to login and then provoke the snippet below
-  login.addEventListener('click', function() { firebase.authWithOAuthPopup("google", function(error, authData) {
+  login.addEventListener('click', function() { Firebase.authWithOAuthPopup("google", function(error, authData) {
   if (error) {
     console.log("Login Failed!", error);
   } else {
