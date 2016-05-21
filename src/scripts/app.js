@@ -13,7 +13,7 @@ var lblCurrentMessage = document.getElementById('lblCurrentMessage'),
     txtNewMessage = document.getElementById('txtNewMessage'),
     btUpdateMessage = document.getElementById('btUpdateMessage'),
     login = document.getElementById('login'),
-    rootRef = firebase.database(),
+    rootRef = Firebase.database(),
     currentMessageRef = rootRef.ref('currentMessage');
 
 btUpdateMessage.addEventListener('click', function() {

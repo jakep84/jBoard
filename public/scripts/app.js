@@ -13,19 +13,19 @@ var lblCurrentMessage = document.getElementById('lblCurrentMessage'),
     txtNewMessage = document.getElementById('txtNewMessage'),
     btUpdateMessage = document.getElementById('btUpdateMessage'),
     login = document.getElementById('login'),
-    rootRef = firebase.database(),
+    rootRef = Firebase.database(),
     currentMessageRef = rootRef.ref('currentMessage');
 
 btUpdateMessage.addEventListener('click', function() {
     currentMessageRef.set(txtNewMessage.value);
-    txtNewMessage.value='';
+    txtNewMessage.value=''; });
     
     //prompt user to login and then provoke the snippet below
   login.addEventListener('click', function() { Firebase.authWithOAuthPopup("google", function(error, authData) {
   if (error) {
     console.log("Login Failed!", error);
   } else {
-    console.log("Authenticated successfully with payload:", authData); } });
+    console.log("Authenticated successfully with payload:", authData); } })
 });
 
 
