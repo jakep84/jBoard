@@ -8,7 +8,14 @@ var config = {
     storageBucket: "jchat-18544.appspot.com",
 };
   firebase.initializeApp(config);
-
+var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
+ref.authWithOAuthPopup("google", function(error, authData) {
+  if (error) {
+    console.log("Login Failed!", error);
+  } else {
+    console.log("Authenticated successfully with payload:", authData);
+  }
+});
 var lblCurrentMessage = document.getElementById('lblCurrentMessage'),
     txtNewMessage = document.getElementById('txtNewMessage'),
     btUpdateMessage = document.getElementById('btUpdateMessage'),
