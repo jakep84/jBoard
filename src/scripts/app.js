@@ -19,15 +19,13 @@ var lblCurrentMessage = document.getElementById('lblCurrentMessage'),
 btUpdateMessage.addEventListener('click', function() {
     currentMessageRef.set(txtNewMessage.value);
     txtNewMessage.value='';
-});
-
-//prompt user to login and then provoke the snippet below
+    
+    //prompt user to login and then provoke the snippet below
   login.addEventListener('click', function() { firebase.authWithOAuthPopup("google", function(error, authData) {
   if (error) {
     console.log("Login Failed!", error);
   } else {
-    console.log("Authenticated successfully with payload:", authData);
-  }
-      
-  }
-)});
+    console.log("Authenticated successfully with payload:", authData); } });
+});
+
+

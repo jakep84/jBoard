@@ -8,14 +8,7 @@ var config = {
     storageBucket: "jchat-18544.appspot.com",
 };
   firebase.initializeApp(config);
-var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
-ref.authWithOAuthPopup("google", function(error, authData) {
-  if (error) {
-    console.log("Login Failed!", error);
-  } else {
-    console.log("Authenticated successfully with payload:", authData);
-  }
-});
+
 var lblCurrentMessage = document.getElementById('lblCurrentMessage'),
     txtNewMessage = document.getElementById('txtNewMessage'),
     btUpdateMessage = document.getElementById('btUpdateMessage'),
@@ -26,4 +19,13 @@ var lblCurrentMessage = document.getElementById('lblCurrentMessage'),
 btUpdateMessage.addEventListener('click', function() {
     currentMessageRef.set(txtNewMessage.value);
     txtNewMessage.value='';
+    
+    //prompt user to login and then provoke the snippet below
+  login.addEventListener('click', function() { firebase.authWithOAuthPopup("google", function(error, authData) {
+  if (error) {
+    console.log("Login Failed!", error);
+  } else {
+    console.log("Authenticated successfully with payload:", authData); } });
 });
+
+
