@@ -63,7 +63,7 @@ var jApp = {
                         // The firebase.auth.AuthCredential type that was used.
                         var credential = error.credential;
                         $('#loginInfo').html(error.message);
-                    });
+                    })};
                 } else {
                 $('#loginInfo').html(jApp.username);
                 $('#loginInfo').html(jApp.username);                   
