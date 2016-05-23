@@ -38,29 +38,28 @@ var messageClass = (function() {
                             allMessages= [];
                             var messages = results.val();
                             for (var item in messages) {
-                                var msg = messages[item].message;
-                                var user = messages[item].user;
-                                $messageList = $('<li></li>');
-                                $messageList.attr('data-id',item);
-                                $user = $('<div class="user">').html(user);
-                            } 
+                             var msg = messages[item].message;
+                             var user = messages[item].user;
+                             $messageList = $('<li></li>');
+                             $messageList.attr('data-id',item);
+                             $user = $('<div class="user">').html(user);
                              $messageList.html(msg);
                              $messageList.append($user);
                              $messageList.append($deleteElement);
                              $messageList.append($upVoteElement);
                              $messageList.append($downVoteElement);
-                             $messageList.append('<div class="curvotes pull-right">' + votes + '</div>')
+                             $messageList.append('<div class="curvotes pull-right">' + votes + '</div>');
                              allMessages.push($messageList);
                         }  for  (var i in allMessages) {
                                 $messageBoard.append(allMessages[i]);
                             }
-                        )
                     return {
                                   postMessage:postMessage,
                                   getMessages: getMessages,
-                                  update<essage: updateMessage
+                                  updateMessage: updateMessage
                                   };
                 });
+                    };
 var jApp = {
     currentUser : {},
     username: '',
@@ -104,7 +103,7 @@ var jApp = {
                 $('#btnLogin').hide(); 
                 messageClass.getMessages();
             })
-        }),
+            },
             logout: function(){
                 auth.signOut().then(function () {
                     jApp.currentUser = null;
@@ -115,8 +114,10 @@ var jApp = {
                     $('#loginInfo').html(error.message);
                     // An error happened.
                 });
-                }; })
-    }};
+                }; 
+        );
+    };
+    )} 
 };
     $(document).ready(function (){ 
     if (jApp.isLoggedIn()) {
