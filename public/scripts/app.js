@@ -1,6 +1,6 @@
 
   // Initialize Firebase
-var Firebase = require("firebase");
+var firebase = require("firebase");
 var config = {
     apiKey: "AIzaSyB_6B4i_JJe8cxhXZv8vIBZgwRoRK_FObA",
     authDomain: "jchat-18544.firebaseapp.com",
@@ -9,6 +9,8 @@ var config = {
 };
   firebase.initializeApp(config);
 //-----------auth signIn
+var provider = new firebase.auth.GoogleAuthProvider();
+
 login.addEventListener('click', function() { firebase.auth().signInWithPopup(provider).then(function(result) {
   // This gives you a Google Access Token. You can use it to access the Google API.
   var token = result.credential.accessToken;
@@ -25,6 +27,7 @@ login.addEventListener('click', function() { firebase.auth().signInWithPopup(pro
   var credential = error.credential;
   // ...
 });
+                                           })
 //-----------auth signOut
 firebase.auth().signOut().then(function() {
   // Sign-out successful.
@@ -35,7 +38,7 @@ var lblCurrentMessage = document.getElementById('lblCurrentMessage'),
     txtNewMessage = document.getElementById('txtNewMessage'),
     btUpdateMessage = document.getElementById('btUpdateMessage'),
     login = document.getElementById('login'),
-    rootRef = Firebase.database(),
+    rootRef = firebase.database(),
     currentMessageRef = rootRef.ref('currentMessage');
 
 btUpdateMessage.addEventListener('click', function() {
@@ -43,7 +46,7 @@ btUpdateMessage.addEventListener('click', function() {
     txtNewMessage.value=''; });
     
     //prompt user to login and then provoke the snippet below
-  login.addEventListener('click', function() { Firebase.authWithOAuthPopup("google", function(error, authData) {
+  login.addEventListener('click', function() { firebase.authWithOAuthPopup("google", function(error, authData) {
   if (error) {
     console.log("Login Failed!", error);
   } else {
