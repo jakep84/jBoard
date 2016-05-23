@@ -49,7 +49,7 @@ var jApp = {
                         var token = result.credential.accessToken;
                         // The signed-in user info.
                         user = result.user;
-                        username = jsApp.currentUser.displayName;
+                        username = jApp.currentUser.displayName;
                         $('#loginInfo').html(username);
                         $('#loggedIn').show();
                         $('#btnLogin').hide();
@@ -63,14 +63,14 @@ var jApp = {
                         // The firebase.auth.AuthCredential type that was used.
                         var credential = error.credential;
                         $('#loginInfo').html(error.message);
-                    })};
-                } else {
+                    } else {
                 $('#loginInfo').html(jApp.username);
                 $('#loginInfo').html(jApp.username);                   
                 $('#loggedIn').show();                   
                 $('#btnLogin').hide(); 
                 messageClass.getMessages();
-            },
+            })
+            });
             logout: function(){
                 auth.signOut().then(function () {
                     jApp.currentUser = null;
@@ -120,13 +120,13 @@ var jApp = {
                         }  for  (var i in allMessages) {
                                 $messageBoard.append(allMessages[i]);
                             }
-                        })
+                        )
                     return {
                                   postMessage:postMessage,
                                   getMessages: getMessages,
                                   update<essage: updateMessage
-                                  }
-                    };
+                                  };
+                })}};
                 
                                   
                                   
