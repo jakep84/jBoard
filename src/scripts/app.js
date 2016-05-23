@@ -1,6 +1,6 @@
 
   // Initialize Firebase
-var firebase = require("firebase");
+//var firebase = require("firebase");
 var config = {
     apiKey: "AIzaSyB_6B4i_JJe8cxhXZv8vIBZgwRoRK_FObA",
     authDomain: "jchat-18544.firebaseapp.com",

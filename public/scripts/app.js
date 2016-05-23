@@ -1,6 +1,6 @@
 
   // Initialize Firebase
-var firebase = require("firebase");
+//var firebase = require("firebase");
 var config = {
     apiKey: "AIzaSyB_6B4i_JJe8cxhXZv8vIBZgwRoRK_FObA",
     authDomain: "jchat-18544.firebaseapp.com",
@@ -9,9 +9,14 @@ var config = {
 };
   firebase.initializeApp(config);
 //-----------auth signIn
+// google provider object
 var provider = new firebase.auth.GoogleAuthProvider();
-
-login.addEventListener('click', function() { firebase.auth().signInWithPopup(provider).then(function(result) {
+//call scope with: provider.addScope('https://www.googleapis.com/auth/plus.login');
+//login button click event "when you click the login button"
+login.addEventListener('click', function() {
+//a sign in popup will be generated
+    //I will use popup, redirect is preffered in mobile though
+firebase.auth().signInWithPopup(provider).then(function(result) {
   // This gives you a Google Access Token. You can use it to access the Google API.
   var token = result.credential.accessToken;
   // The signed-in user info.
