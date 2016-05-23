@@ -28,7 +28,7 @@ var messageClass = (function() {
                             message: message,
                             user:jApp.username
                         })
-                    }};
+                    }});
                     var getMessages = function(event) {
                         var allMessages = [];
                         var $messageBoard = $('#results');
