@@ -10,7 +10,7 @@
 //-----------auth signIn
 var auth = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
-var database = firebase.config.databaseURL();
+var database = firebase.database();
 var messageClass = function () {
     var postMessage = function (event) {
         //to keep prevent a DOM reload of js on refresh
