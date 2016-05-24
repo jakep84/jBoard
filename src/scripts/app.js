@@ -1,6 +1,6 @@
 
 // Initialize Firebase
-var Firebase = require("firebase");
+var ref = new Firebase("https://jBoard.firebaseio.com");
 var config = {
     apiKey: "AIzaSyB_6B4i_JJe8cxhXZv8vIBZgwRoRK_FObA",
     authDomain: "jchat-18544.firebaseapp.com",
@@ -77,7 +77,7 @@ var jApp = {
                 login.addEventListener('click', function() {
                     //a sign in popup will be generated
                     //I will use popup, redirect is preffered in mobile though
-                    Firebase.auth().signInWithPopup(provider).then(function(result) {
+                    ref.authWithOAuthPopup("google", function(error, authData) {
                         // This gives you a Google Access Token. You can use it to access the Google API.
                         var token = result.credential.accessToken;
                         // The signed-in user info.
@@ -87,7 +87,7 @@ var jApp = {
                         $('#loggedIn').show();
                         $('#btnLogin').hide();
                         messageClass.getMessages();
-                    }).catch(function(error) {
+                    } if (error) {
                         // Handle Errors here.
                         var errorCode = error.code;
                         var errorMessage = error.message;
@@ -102,6 +102,8 @@ var jApp = {
                 $('#loggedIn').show();                   
                 $('#btnLogin').hide(); 
                 messageClass.getMessages();
+                console.log("Authenticated successfully with payload:", authData);
+
             })
             },
             logout: function(){
@@ -113,6 +115,8 @@ var jApp = {
                 }, function(error) {
                     $('#loginInfo').html(error.message);
                     // An error happened.
+                }, {
+                    remmber:'sessionOnly'
                 });
                 }; 
         );
