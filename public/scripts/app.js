@@ -9,16 +9,15 @@ firebase.initializeApp(config);
 //-----------auth signIn
 var auth = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
-var database = firebase.databaseURL();
+var database = firebase.database();
 
-var messageClass = (function () {
+var messageClass = function () {
     var postMessage = function (event) {
         //to keep prevent a DOM reload of js on refresh
         event.preventDefault();
         //grab user input message
-        var message = $('#message').val();
-        //a section for messages in my database
-        var messagesReference = database.ref('messages');
+        var message = $('#message').val(); 
+        var messageReference = database.ref('messages');
 
         $('#message').val('');
         //clear message section to aknowledge reciept
@@ -26,9 +25,9 @@ var messageClass = (function () {
         messageReference.push({
             message: message,
             user: jApp.username
-        })
-    }
-});
+        });
+    };
+};
 var getMessages = function (event) {
     var allMessages = [];
     var $messageBoard = $('#results');
