@@ -27,7 +27,7 @@ var messageClass = (function() {
         messageReference.push({
             message: message,
             user:jApp.username
-        })
+        });
     }});
 var getMessages = function(event) {
     var allMessages = [];
@@ -102,7 +102,7 @@ var jApp = {
                     messageClass.getMessages();
                     console.log("Authenticated successfully with payload:", authData);
 
-                })})})}},
+                })})}},
     logout: function(){
         auth.signOut().then(function () {
             jApp.currentUser = null;
