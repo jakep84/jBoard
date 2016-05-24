@@ -73,8 +73,6 @@ var jApp = {
     login: function() {
         if (!jApp.isLoggedIn()) {
             auth.signInWithPopup(provider).then(function(result) {
-
-                login.addEventListener('click', function() {
                     //a sign in popup will be generated
                     //I will use popup, redirect is preffered in mobile though
                     ref.authWithOAuthPopup("google", function(error, authData) {
@@ -118,7 +116,6 @@ var jApp = {
                     remmber:'sessionOnly';
                 });
                 }; 
-    };
     
     $(document).ready(function (){ 
     if (jApp.isLoggedIn()) {
