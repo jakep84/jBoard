@@ -11,52 +11,6 @@ var auth = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
 var database = firebase.database();
 
-var jApp = {
-    currentUser: {},
-    username: '',
-    isLoggedIn: function () {
-        jApp.currentUser = auth.currentUser;
-        if (jApp.currentUser !== null) {
-            jApp.username = jApp.currentUser.displayName;
-        }
-        return jApp.currentUser !== null;
-    },
-    login: function () {
-        if (!jApp.isLoggedIn()) {
-            auth.signInWithPopup(provider).then(function (result) {
-
-                jsApp.currentUser = result.user;
-                jsApp.username = jApp.currentUser.displayName;
-                $('#loginInfo').html(jsApp.username);
-                $('#loggedIn').show();
-                $('#btnLogin').hide();
-                messageClass.getMessages();
-            }).catch(function (error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // The email of the user's account used.
-                var email = error.email;
-                // The firebase.auth.AuthCredential type that was used.
-                var credential = error.credential;
-                $('#loginInfo').html(error.message);
-            });
-        }
-    },
-    logout: function () {
-        auth.signOut().then(function () {
-            jApp.currentUser = null;
-            jApp.username = '';
-            $('#loggedIn').hide();
-            $('#btnLogin').show();
-        }).catch( function (error) {
-            $('#loginInfo').html(error.message);
-            // An error happened.
-        })
-    }
-};
-
-
 var messageClass = function () {
     var postMessage = function (event) {
         //to keep prevent a DOM reload of js on refresh
@@ -105,6 +59,51 @@ var getMessages = function (event) {
         };
     });
 };
+var jApp = {
+    currentUser: {},
+    username: '',
+    isLoggedIn: function () {
+        jApp.currentUser = auth.currentUser;
+        if (jApp.currentUser !== null) {
+            jApp.username = jApp.currentUser.displayName;
+        }
+        return jApp.currentUser !== null;
+    },
+    login: function () {
+        if (!jApp.isLoggedIn()) {
+            auth.signInWithPopup(provider).then(function (result) {
+
+                jsApp.currentUser = result.user;
+                jsApp.username = jApp.currentUser.displayName;
+                $('#loginInfo').html(jsApp.username);
+                $('#loggedIn').show();
+                $('#btnLogin').hide();
+                messageClass.getMessages();
+            }).catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                $('#loginInfo').html(error.message);
+            });
+        }
+    },
+    logout: function () {
+        auth.signOut().then(function () {
+            jApp.currentUser = null;
+            jApp.username = '';
+            $('#loggedIn').hide();
+            $('#btnLogin').show();
+        }).catch( function (error) {
+            $('#loginInfo').html(error.message);
+            // An error happened.
+        })
+    }
+};
+
 $(document).ready(function () {
     if (jApp.isLoggedIn()) {
         $('#loginInfo').html(jApp, currentUser.google.displayName);
