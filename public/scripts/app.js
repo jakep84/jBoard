@@ -1,16 +1,16 @@
 // Initialize Firebase
-var config = {
+  var config = {
     apiKey: "AIzaSyB_6B4i_JJe8cxhXZv8vIBZgwRoRK_FObA",
     authDomain: "jchat-18544.firebaseapp.com",
-    databaseURL: "https://jchat-18544.firebaseio.com",
-    storageBucket: "jchat-18544.appspot.com"
-};
-firebase.initializeApp(config);
+    databaseURL: "https://jchat-18544.firebaseio.com/",
+    storageBucket: "jchat-18544.appspot.com",
+  };
+  firebase.initializeApp(config);
+
 //-----------auth signIn
 var auth = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
 var database = firebase.database();
-
 var messageClass = function () {
     var postMessage = function (event) {
         //to keep prevent a DOM reload of js on refresh
