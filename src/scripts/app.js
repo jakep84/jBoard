@@ -104,8 +104,7 @@ var jApp = {
                 messageClass.getMessages();
                 console.log("Authenticated successfully with payload:", authData);
 
-            })
-            },
+            })})})}},
             logout: function(){
                 auth.signOut().then(function () {
                     jApp.currentUser = null;
@@ -116,13 +115,11 @@ var jApp = {
                     $('#loginInfo').html(error.message);
                     // An error happened.
                 }, {
-                    remmber:'sessionOnly'
+                    remmber:'sessionOnly';
                 });
                 }; 
-        );
     };
-    )} 
-};
+    
     $(document).ready(function (){ 
     if (jApp.isLoggedIn()) {
         $('#loginInfo').html(jApp,currentUser.google.displayName);
