@@ -9,7 +9,7 @@ firebase.initializeApp(config);
 //-----------auth signIn
 var auth = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
-var database = firebase.database();
+var database = firebase.databaseURL();
 
 var messageClass = (function () {
     var postMessage = function (event) {
