@@ -11,7 +11,7 @@ var config = {
   apiKey: "AIzaSyB_6B4i_JJe8cxhXZv8vIBZgwRoRK_FObA",
   authDomain: "jchat-18544.firebaseapp.com",
   serviceAccount: "/package.json",
-  databaseURL: "https://jchat-18544.firebaseio.com/",
+  database: "https://jchat-18544.firebaseio.com/",
   storageBucket: "jchat-18544.appspot.com"
 };
  firebase.initializeApp(config);
