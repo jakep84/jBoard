@@ -18,7 +18,7 @@
 var auth = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
 //I don't understand what is going wrong with firebase.database
-var database = firebase.database(jApp);
+var database = firebase.database();
 var messageClass = function () {
     var postMessage = function (event) {
         //to keep prevent a DOM reload of js on refresh
