@@ -7,17 +7,17 @@
 //  };
 // 
 //var firebase = require("firebase");
-var config = {
-  apiKey: "AIzaSyB_6B4i_JJe8cxhXZv8vIBZgwRoRK_FObA",
-  authDomain: "jchat-18544.firebaseapp.com",
-  serviceAccount: "/package.json",
-  databaseURL: "https://jchat-18544.firebaseio.com/",
-  storageBucket: "jchat-18544.appspot.com"
-};
- firebase.initializeApp(config);
+  var config = {
+    apiKey: "AIzaSyBb0JKs0b8v6MFdz1ZhVnQIhjWyHRceRD0",
+    authDomain: "burning-fire-7895.firebaseapp.com",
+    databaseURL: "https://burning-fire-7895.firebaseio.com",
+    storageBucket: "burning-fire-7895.appspot.com",
+  };
+  firebase.initializeApp(config);
 //-----------auth signIn
 var auth = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
+//I don't understand what is going wrong with firebase.database
 var database = firebase.database(jApp);
 var messageClass = function () {
     var postMessage = function (event) {
