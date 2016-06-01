@@ -8,10 +8,10 @@
 // 
 //var firebase = require("firebase");
   var config = {
-    apiKey: "AIzaSyB_6B4i_JJe8cxhXZv8vIBZgwRoRK_FObA",
-    authDomain: "jchat-18544.firebaseapp.com",
-    databaseURL: "https://jchat-18544.firebaseio.com",
-    storageBucket: "jchat-18544.appspot.com",
+    apiKey: "AIzaSyBb0JKs0b8v6MFdz1ZhVnQIhjWyHRceRD0",
+    authDomain: "burning-fire-7895.firebaseapp.com",
+    databaseURL: "https://burning-fire-7895.firebaseio.com",
+    storageBucket: "burning-fire-7895.appspot.com",
   };
 var app = firebase.initializeApp(config);
 //-----------auth signIn
