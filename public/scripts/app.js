@@ -13,7 +13,7 @@
     databaseURL: "https://burning-fire-7895.firebaseio.com",
     storageBucket: "burning-fire-7895.appspot.com",
   };
-  firebase.initializeApp(config);
+var app = firebase.initializeApp(config);
 //-----------auth signIn
 var auth = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
