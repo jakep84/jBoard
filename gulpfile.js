@@ -10,7 +10,7 @@ var config = {
 }
 // defines html
 gulp.task('html', function () {
-  gulp.src(config.paths.html)
+ return gulp.src(config.paths.html)
   .pipe(gulp.dest(config.paths.dist))
 });
 

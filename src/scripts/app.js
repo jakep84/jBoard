@@ -8,11 +8,12 @@
 // 
 //var firebase = require("firebase");
   var config = {
-    apiKey: "AIzaSyBb0JKs0b8v6MFdz1ZhVnQIhjWyHRceRD0",
-    authDomain: "burning-fire-7895.firebaseapp.com",
-    databaseURL: "https://burning-fire-7895.firebaseio.com",
-    storageBucket: "burning-fire-7895.appspot.com",
+    apiKey: "AIzaSyAb8La8NazINqO7iwODX7iPzW7qsPlwl-g",
+    authDomain: "project-8255575667212461091.firebaseapp.com",
+    databaseURL: "https://project-8255575667212461091.firebaseio.com",
+    storageBucket: "",
   };
+
 var app = firebase.initializeApp(config);
 //-----------auth signIn
 var auth = firebase.auth();
