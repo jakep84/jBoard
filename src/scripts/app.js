@@ -11,7 +11,7 @@
     apiKey: "AIzaSyAb8La8NazINqO7iwODX7iPzW7qsPlwl-g",
     authDomain: "project-8255575667212461091.firebaseapp.com",
     databaseURL: "https://project-8255575667212461091.firebaseio.com",
-    storageBucket: "project-8255575667212461091.appspot.com",
+    storageBucket: "",
   };
 
 var app = firebase.initializeApp(config);
