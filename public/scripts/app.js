@@ -11,14 +11,13 @@
     apiKey: "AIzaSyAb8La8NazINqO7iwODX7iPzW7qsPlwl-g",
     authDomain: "project-8255575667212461091.firebaseapp.com",
     databaseURL: "https://project-8255575667212461091.firebaseio.com",
-    storageBucket: "",
+    storageBucket: "project-8255575667212461091.appspot.com",
   };
 
 var app = firebase.initializeApp(config);
 //-----------auth signIn
 var auth = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
-//I don't understand what is going wrong with firebase.database
 var database = firebase.database();
 var messageClass = function () {
     var postMessage = function (event) {
@@ -52,6 +51,9 @@ var getMessages = function (event) {
             $messageList.attr('data-id', item);
             $user = $('<div class="user">').html(user);
             $messageList.html(msg);
+            
+            // this should be where the user name is appended to end of the message. Pretty sure
+
             $messageList.append($user);
             $messageList.append($deleteElement);
             $messageList.append($upVoteElement);
@@ -127,19 +129,5 @@ $(document).ready(function () {
     $('#btnLogout').on('click', jApp.logout);
     $('#btUpdateMessage').on('click', messageClass.postMessage);
 });
-
-
-
-
-//                var lblCurrentMessage = document.getElementById('lblCurrentMessage'),
-//                    txtNewMessage = document.getElementById('txtNewMessage'),
-//                    btUpdateMessage = document.getElementById('btUpdateMessage'),
-//                    login = document.getElementById('login'),
-//                    rootRef = firebase.database(),
-//                    currentMessageRef = rootRef.ref('currentMessage');
-//
-//                btUpdateMessage.addEventListener('click', function() {
-//                    currentMessageRef.set(txtNewMessage.value);
-//                    txtNewMessage.value=''; });
 
 
