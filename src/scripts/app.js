@@ -38,7 +38,7 @@ var messageClass = function () {
 };
 var getMessages = function (event) {
     var allMessages = [];
-    var $messageBoard = $('#results');
+    var $messageBoard = $('#well');
     // use ref to app database to listen for changes in messages data
     database.ref('messages').on('value', function (results) {
         $messageBoard.html('');
