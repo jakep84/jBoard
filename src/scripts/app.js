@@ -82,6 +82,8 @@ var jApp = {
     },
     login: function () {
         if (!jApp.isLoggedIn()) {
+            
+//---not allowing me to actually sign in (even after I log out)
             auth.signInWithPopup(provider).then(function (result) {
 
                 jsApp.currentUser = result.user;
@@ -106,8 +108,8 @@ var jApp = {
         auth.signOut().then(function () {
             jApp.currentUser = null;
             jApp.username = '';
-            $('#loggedIn').hide();
-            $('#btnLogin').show();
+            $('#btnLogin').hide();
+            $('#btnLogout').show();
         }).catch( function (error) {
             $('#loginInfo').html(error.message);
             // An error happened.
@@ -118,12 +120,12 @@ var jApp = {
 $(document).ready(function () {
     if (jApp.isLoggedIn()) {
         $('#loginInfo').html(jApp, currentUser.google.displayName);
-        $('#loggedIn').show();
-        $('#btnLogin').hide();
+        $('#btnlogin').show();
+        $('#btnLogout').hide();
         messageClass.getMessages();
     } else {
-        $('#loggedIn').hide();
-        $('#btnLogIn').show();
+        $('#btnLogin').hide();
+        $('#btnLogout').show();
     }
     $('#btnLogin').on('click', jApp.login);
     $('#btnLogout').on('click', jApp.logout);
