@@ -23,6 +23,6 @@ body {
 /*    style='display:none;  */
 }
 
-.container {
-        margin-top: 5em
+#mainContainer {
+        margin-top: 5em;
 }

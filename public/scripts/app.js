@@ -117,19 +117,57 @@ var jApp = {
     }
 };
 
+
+
+
+
 $(document).ready(function () {
     if (jApp.isLoggedIn()) {
         $('#loginInfo').html(jApp, currentUser.google.displayName);
-        $('#btnLogin').show();
-        $('#btnLogout').hide();
-        messageClass.getMessages();
-    } else {
         $('#btnLogin').hide();
         $('#btnLogout').show();
+        messageClass.getMessages();
+    } else {
+        $('#btnLogin').show();
+        $('#btnLogout').hide();
     }
     $('#btnLogin').on('click', jApp.login);
     $('#btnLogout').on('click', jApp.logout);
     $('#btUpdateMessage').on('click', messageClass.postMessage);
 });
+// --------- A simplified login button toggle
+$(document).ready(function () {
+    if (jApp.isLoggedIn()) {
+        $('#loginInfo').html(jApp, currentUser.google.displayName);
+        $('#btnLogin').hide();
+        $('#btnLogout').show();
+        messageClass.getMessages();
+    } else {
+        $('#btnLogin').show();
+        $('#btnLogout').hide();
+    }
+    $('#btnLogin').on('click', jApp.login);
+    $('#btnLogout').on('click', jApp.logout);
+    $('#btUpdateMessage').on('click', messageClass.postMessage);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
