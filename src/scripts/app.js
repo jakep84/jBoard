@@ -120,7 +120,7 @@ var jApp = {
 $(document).ready(function () {
     if (jApp.isLoggedIn()) {
         $('#loginInfo').html(jApp, currentUser.google.displayName);
-        $('#btnlogin').show();
+        $('#btnLogin').show();
         $('#btnLogout').hide();
         messageClass.getMessages();
     } else {
