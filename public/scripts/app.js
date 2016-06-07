@@ -86,12 +86,12 @@ var jApp = {
 //---not allowing me to actually sign in (even after I log out)
             auth.signInWithPopup(provider).then(function (result) {
 
-                jsApp.currentUser = result.user;
-                jsApp.username = jApp.currentUser.displayName;
-                $('#loginInfo').html(jsApp.username);
+                jApp.currentUser = result.user;
+                jApp.username = jApp.currentUser.displayName;
+                $('#loginInfo').html(jApp.username);
                 $('#loggedIn').show();
                 $('#btnLogin').hide();
-                messageClass.getMessages();
+//                messageClass.getMessages();
             }).catch(function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
@@ -108,8 +108,10 @@ var jApp = {
         auth.signOut().then(function () {
             jApp.currentUser = null;
             jApp.username = '';
-            $('#btnLogin').hide();
-            $('#btnLogout').show();
+            
+        //worry with toggilng show and hide later
+//            $('#btnLogin').hide();
+//            $('#btnLogout').show();
         }).catch( function (error) {
             $('#loginInfo').html(error.message);
             // An error happened.
@@ -123,20 +125,25 @@ var jApp = {
 
 $(document).ready(function () {
     if (jApp.isLoggedIn()) {
-        $('#loginInfo').html(jApp, currentUser.google.displayName);
-        $('#btnLogin').hide();
-        $('#btnLogout').show();
+       $('p').html(jApp, currentUser.google.displayName);
+        //worry with toggilng show and hide later
+//        $('#btnLogin').show();
+//        $('#btnLogout').show();
         messageClass.getMessages();
-    } else {
-        $('#btnLogin').show();
-        $('#btnLogout').hide();
+//    } else {
+//        $('#btnLogin').show();
+//        $('#btnLogout').show();
     }
     $('#btnLogin').on('click', jApp.login);
     $('#btnLogout').on('click', jApp.logout);
     $('#btUpdateMessage').on('click', messageClass.postMessage);
 });
 
-
+$(document).ready(function(){
+    $("button").click(function(){
+        $("button").hide();
+    });
+});
 //
 //// --------- A simplified login button toggle
 //$(document).ready(function () {

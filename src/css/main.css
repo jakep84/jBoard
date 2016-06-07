@@ -5,24 +5,9 @@ body {
     padding:40px 15px;
     text-align:center;
 }
-
-
-.navbar-collapse {
-    
-}
-
 .nav {
     float:right;
 }
-
-#btnLogin {
-   
-}
-
-#LoggedIn {
-/*    style='display:none;  */
-}
-
 #mainContainer {
-        margin-top: 5em;
+        margin-top: 6em;
 }
