@@ -7,12 +7,12 @@
 //  };
 // 
 //var firebase = require("firebase");
-  var config = {
+var config = {
     apiKey: "AIzaSyAb8La8NazINqO7iwODX7iPzW7qsPlwl-g",
     authDomain: "project-8255575667212461091.firebaseapp.com",
     databaseURL: "https://project-8255575667212461091.firebaseio.com",
     storageBucket: "",
-  };
+};
 
 var app = firebase.initializeApp(config);
 //-----------auth signIn
@@ -24,10 +24,10 @@ var messageClass = function () {
         //to keep prevent a DOM reload of js on refresh
         event.preventDefault();
         //grab user input message
-        var message = $('#message').val(); 
+        var message = $('#txtNewMessage').val(); 
         var messageReference = database.ref('messages');
 
-        $('#message').val('');
+        $('#txtNewMessage').val('');
         //clear message section to aknowledge reciept
         //save data to the database using the set method
         messageReference.push({
@@ -38,7 +38,7 @@ var messageClass = function () {
 };
 var getMessages = function (event) {
     var allMessages = [];
-    var $messageBoard = $('#well');
+    var $messageBoard = $('well');
     // use ref to app database to listen for changes in messages data
     database.ref('messages').on('value', function (results) {
         $messageBoard.html('');
@@ -51,7 +51,7 @@ var getMessages = function (event) {
             $messageList.attr('data-id', item);
             $user = $('<div class="user">').html(user);
             $messageList.html(msg);
-            
+
             // this should be where the user name is appended to end of the message. Pretty sure
 
             $messageList.append($user);
@@ -82,8 +82,8 @@ var jApp = {
     },
     login: function () {
         if (!jApp.isLoggedIn()) {
-            
-//---not allowing me to actually sign in (even after I log out)
+
+            //---not allowing me to literaly sign in (even after I log out)
             auth.signInWithPopup(provider).then(function (result) {
 
                 jApp.currentUser = result.user;
@@ -91,7 +91,7 @@ var jApp = {
                 $('#loginInfo').html(jApp.username);
                 $('#loggedIn').show();
                 $('#btnLogin').hide();
-//                messageClass.getMessages();
+                //                messageClass.getMessages();
             }).catch(function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
@@ -108,10 +108,10 @@ var jApp = {
         auth.signOut().then(function () {
             jApp.currentUser = null;
             jApp.username = '';
-            
-        //worry with toggilng show and hide later
-//            $('#btnLogin').hide();
-//            $('#btnLogout').show();
+
+            //worry with toggilng show and hide later
+            //            $('#btnLogin').hide();
+            //            $('#btnLogout').show();
         }).catch( function (error) {
             $('#loginInfo').html(error.message);
             // An error happened.
@@ -125,25 +125,21 @@ var jApp = {
 
 $(document).ready(function () {
     if (jApp.isLoggedIn()) {
-       $('p').html(jApp, currentUser.google.displayName);
+        $('p').html(jApp, currentUser.google.displayName);
         //worry with toggilng show and hide later
-//        $('#btnLogin').show();
-//        $('#btnLogout').show();
+//                $('#btnLogin').show();
+//                $('#btnLogout').show();
         messageClass.getMessages();
-//    } else {
-//        $('#btnLogin').show();
-//        $('#btnLogout').show();
+        //    } else {
+        //        $('#btnLogin').show();
+        //        $('#btnLogout').show();
     }
     $('#btnLogin').on('click', jApp.login);
     $('#btnLogout').on('click', jApp.logout);
-    $('#btUpdateMessage').on('click', messageClass.postMessage);
+    $('button').on('click', messageClass.postMessage);
 });
 
-$(document).ready(function(){
-    $("button").click(function(){
-        $("button").hide();
-    });
-});
+
 //
 //// --------- A simplified login button toggle
 //$(document).ready(function () {
