@@ -55,6 +55,7 @@ var getMessages = function (event) {
             // this should be where the user name is appended to end of the message. Pretty sure
 
             $messageList.append($user);
+            
             $messageList.append($deleteElement);
             $messageList.append($upVoteElement);
             $messageList.append($downVoteElement);
@@ -89,9 +90,9 @@ var jApp = {
                 jApp.currentUser = result.user;
                 jApp.username = jApp.currentUser.displayName;
                 $('#loginInfo').html(jApp.username);
-                $('#loggedIn').show();
-                $('#btnLogin').hide();
-                //                messageClass.getMessages();
+//                $('#loggedIn').show();
+//                $('#btnLogin').show();
+                              messageClass.getMessages();
             }).catch(function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
@@ -136,7 +137,7 @@ $(document).ready(function () {
     }
     $('#btnLogin').on('click', jApp.login);
     $('#btnLogout').on('click', jApp.logout);
-    $('button').on('click', messageClass.postMessage);
+    $('btUpdateMessage').on('click', messageClass.postMessage);
 });
 
 
