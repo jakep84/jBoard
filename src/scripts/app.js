@@ -142,6 +142,9 @@ $(document).ready(function () {
 });
 
 
+
+//---- get the messages from the button click 
+
 //
 //// --------- A simplified login button toggle
 //$(document).ready(function () {
