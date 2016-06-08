@@ -92,7 +92,7 @@ var jApp = {
                 $('#loginInfo').html(jApp.username);
 //                $('#loggedIn').show();
 //                $('#btnLogin').show();
-                              messageClass.getMessages();
+//                messageClass.getMessages();
             }).catch(function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
