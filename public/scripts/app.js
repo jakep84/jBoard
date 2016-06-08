@@ -30,12 +30,13 @@ var messageClass = function () {
         $('#txtNewMessage').val('');
         //clear message section to aknowledge reciept
         //save data to the database using the set method
-        messageReference.push({
+        return messageReference.push({
             message: message,
             user: jApp.username
         });
     };
 };
+
 var getMessages = function (event) {
     var allMessages = [];
     var $messageBoard = $('well');
@@ -92,7 +93,7 @@ var jApp = {
                 $('#loginInfo').html(jApp.username);
 //                $('#loggedIn').show();
 //                $('#btnLogin').show();
-//                messageClass.getMessages();
+                messageClass.getMessages();
             }).catch(function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
@@ -137,7 +138,7 @@ $(document).ready(function () {
     }
     $('#btnLogin').on('click', jApp.login);
     $('#btnLogout').on('click', jApp.logout);
-    $('btUpdateMessage').on('click', messageClass.postMessage);
+    $('.form-control').on('click',console.log(messageClass));
 });
 
 
