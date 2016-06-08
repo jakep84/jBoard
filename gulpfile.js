@@ -27,6 +27,6 @@ gulp.task('css', function() {
 })
           
           
-          
-gulp.task('default', ['html', 'js', 'css']);
+        
+return gulp.task('default', ['html', 'js', 'css']);
 
