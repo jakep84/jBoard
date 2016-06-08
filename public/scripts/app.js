@@ -30,13 +30,12 @@ var messageClass = function () {
         $('#txtNewMessage').val('');
         //clear message section to aknowledge reciept
         //save data to the database using the set method
-        return messageReference.push({
+        messageReference.push({
             message: message,
             user: jApp.username
         });
     };
 };
-
 var getMessages = function (event) {
     var allMessages = [];
     var $messageBoard = $('well');
@@ -56,7 +55,6 @@ var getMessages = function (event) {
             // this should be where the user name is appended to end of the message. Pretty sure
 
             $messageList.append($user);
-            
             $messageList.append($deleteElement);
             $messageList.append($upVoteElement);
             $messageList.append($downVoteElement);
@@ -91,9 +89,9 @@ var jApp = {
                 jApp.currentUser = result.user;
                 jApp.username = jApp.currentUser.displayName;
                 $('#loginInfo').html(jApp.username);
-//                $('#loggedIn').show();
-//                $('#btnLogin').show();
-                messageClass.getMessages();
+                $('#loggedIn').show();
+                $('#btnLogin').hide();
+                //                messageClass.getMessages();
             }).catch(function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
@@ -138,12 +136,9 @@ $(document).ready(function () {
     }
     $('#btnLogin').on('click', jApp.login);
     $('#btnLogout').on('click', jApp.logout);
-    $('.form-control').on('click',console.log(messageClass));
+    $('button').on('click', messageClass.postMessage);
 });
 
-
-
-//---- get the messages from the button click 
 
 //
 //// --------- A simplified login button toggle
@@ -162,23 +157,3 @@ $(document).ready(function () {
 //    $('#btUpdateMessage').on('click', messageClass.postMessage);
 //});
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
