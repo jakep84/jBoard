@@ -26,7 +26,7 @@ var messageClass = function () {
             user: jApp.username
         });
     };
-};
+}
 var getMessages = function (event) {
     var allMessages = [];
     var $messageBoard = $('well');
@@ -82,7 +82,7 @@ var jApp = {
                 $('#loginInfo').html(jApp.username);
                 $('#loggedIn').show();
                 $('#btnLogin').hide();
-                messageClass.getMessages();
+   //             messageClass.getMessages();
             }).catch(function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
