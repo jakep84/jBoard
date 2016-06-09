@@ -1,12 +1,3 @@
-// Initialize Firebase
-//  var config = {
-//    apiKey: "AIzaSyB_6B4i_JJe8cxhXZv8vIBZgwRoRK_FObA",
-//    authDomain: "jchat-18544.firebaseapp.com",
-//    databaseURL: "https://jchat-18544.firebaseio.com/",
-//    storageBucket: "jchat-18544.appspot.com",
-//  };
-// 
-//var firebase = require("firebase");
 var config = {
     apiKey: "AIzaSyBb0JKs0b8v6MFdz1ZhVnQIhjWyHRceRD0",
     authDomain: "burning-fire-7895.firebaseapp.com",
