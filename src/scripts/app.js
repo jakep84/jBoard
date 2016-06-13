@@ -127,7 +127,7 @@ $(document).ready(function () {
     }
     $('#btnLogin').on('click', jApp.login);
     $('#btnLogout').on('click', jApp.logout);
-    $('button').on('click', messageClass.postMessage);
+    $('#btUpdateMessage').on('click', messageClass.postMessage);
 });
 
 
