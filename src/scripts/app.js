@@ -15,10 +15,10 @@ var messageClass =  {
         //to keep prevent a DOM reload of js on refresh
         event.preventDefault();
         //grab user input message
-        var message = document.getElementById("txtNewMessage").val(); 
+        var message = $("#txtNewMessage").val(); 
         var messageReference = database.ref('messages');
 
-        document.getElementById("txtNewMessage").value(''); 
+        $("#txtNewMessage").val(''); 
         //clear message section to aknowledge reciept
         //save data to the database using the set method
         messageReference.push({
