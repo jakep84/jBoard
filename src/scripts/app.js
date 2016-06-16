@@ -10,22 +10,22 @@ var app = firebase.initializeApp(config);
 var auth = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
 var database = firebase.database();
-var messageClass = function () {
-    var postMessage = function (event) {
+var messageClass =  {
+        postMessage : function (event) {
         //to keep prevent a DOM reload of js on refresh
         event.preventDefault();
         //grab user input message
-        var message = $('#txtNewMessage').val(); 
+        var message = document.getElementById("txtNewMessage").val(); 
         var messageReference = database.ref('messages');
 
-        $('#txtNewMessage').val('');
+        document.getElementById("txtNewMessage").value(''); 
         //clear message section to aknowledge reciept
         //save data to the database using the set method
         messageReference.push({
             message: message,
             user: jApp.username
         });
-    };
+    }
 }
 var getMessages = function (event) {
     var allMessages = [];
