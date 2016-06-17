@@ -10,22 +10,24 @@ var app = firebase.initializeApp(config);
 var auth = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
 var database = firebase.database();
-var messageClass = function () {
-    var postMessage = function (event) {
+var messageClass =  {
+        postMessage : function (event) {
         //to keep prevent a DOM reload of js on refresh
         event.preventDefault();
         //grab user input message
-        var message = document.getElementById("txtNewMessage").value; 
+        var message = $("#txtNewMessage").val(); 
         var messageReference = database.ref('messages');
 
-        document.getElementById("txtNewMessage").value(''); 
+        $("#txtNewMessage").val(''); 
+            // post message to message board (#lblCurrentMessage)
+            $('#fullList').append('<li class="text-center">'+message+'<br/>'+(jApp.username||'Guest User')+'</li>');
         //clear message section to aknowledge reciept
         //save data to the database using the set method
         messageReference.push({
             message: message,
             user: jApp.username
         });
-    };
+    }
 }
 var getMessages = function (event) {
     var allMessages = [];
@@ -127,7 +129,7 @@ $(document).ready(function () {
     }
     $('#btnLogin').on('click', jApp.login);
     $('#btnLogout').on('click', jApp.logout);
-    $('button').on('click', messageClass.postMessage);
+    $('#btUpdateMessage').on('click', messageClass.postMessage);
 });
 
 

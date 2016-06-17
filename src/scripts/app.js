@@ -19,6 +19,8 @@ var messageClass =  {
         var messageReference = database.ref('messages');
 
         $("#txtNewMessage").val(''); 
+            // post message to message board (#lblCurrentMessage)
+            $('#fullList').append('<li class="text-center">'+message+'<br/>'+(jApp.username||'Guest User')+'</li>');
         //clear message section to aknowledge reciept
         //save data to the database using the set method
         messageReference.push({
